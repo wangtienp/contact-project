@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/contact-project/static/css/main.a10307d2.css",
+    "main.js": "/contact-project/static/js/main.07506f03.js",
+    "index.html": "/contact-project/index.html",
+    "main.a10307d2.css.map": "/contact-project/static/css/main.a10307d2.css.map",
+    "main.07506f03.js.map": "/contact-project/static/js/main.07506f03.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a10307d2.css",
+    "static/js/main.07506f03.js"
+  ]
+}
