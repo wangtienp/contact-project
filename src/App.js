@@ -1,23 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+import Contact from './Basics/Contact';
+import { useState,useEffect } from 'react';
+import FunctionComp from './Basics/functionComp';
+import Prop from './Basics/Prop';
+
 
 function App() {
+  const [contacts, setContacts]=useState([])
+  useEffect(()=>{
+      fetch('https://randomuser.me/api/?results=5').
+      // fetch('https://jsonplaceholder.typicode.com/users').
+      then(response=>{
+          return response.json()
+      })
+      .then(data=>{
+        console.log(data)
+        setContacts(data.results)
+      })
+  },[])
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {/* Hi world */}
+      {/* <FunctionComp /> */}
+      {/* <Prop name ='Counter'/> */}
+      {/* 10 Contact */}
+      {contacts.map((contact)=>{
+        return(
+        <Contact 
+        name = {`${contact.name.first} ${contact.name.last}`}
+        email={contact.email} 
+        imgURL = {contact.picture.large}
+        age = {contact.dob.age}
+        />
+        
+        )
+      })}
     </div>
   );
 }
